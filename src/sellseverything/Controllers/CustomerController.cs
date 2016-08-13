@@ -9,7 +9,6 @@ using Microsoft.AspNet.Mvc;
 using Microsoft.Extensions.Logging;
 using sellseverything.Models;
 using sellseverything.Services;
-using sellseverything.ViewModels.Manage;
 
 namespace sellseverything.Controllers
 {
