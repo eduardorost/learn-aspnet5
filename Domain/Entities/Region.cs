@@ -4,7 +4,7 @@ namespace Domain.Entities
 {
     public class Region
     {
-        public String RegionId { get; set; }
+        public Guid RegionId { get; set; }
         public String RegionName { get; set; }
         public virtual City City { get; set; }
     }

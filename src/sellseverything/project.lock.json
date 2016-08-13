@@ -11,14 +11,6 @@
           "EntityFramework": "6.1.3"
         }
       },
-      "DataAccess1/1.0.0": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.5.1",
-        "dependencies": {
-          "Domain": "1.0.0",
-          "EntityFramework": "6.1.3"
-        }
-      },
       "Domain/1.0.0": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1"
@@ -2094,14 +2086,6 @@
     },
     "DNX,Version=v4.5.1/win7-x86": {
       "DataAccess/1.0.0": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.5.1",
-        "dependencies": {
-          "Domain": "1.0.0",
-          "EntityFramework": "6.1.3"
-        }
-      },
-      "DataAccess1/1.0.0": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1",
         "dependencies": {
@@ -4194,14 +4178,6 @@
           "EntityFramework": "6.1.3"
         }
       },
-      "DataAccess1/1.0.0": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.5.1",
-        "dependencies": {
-          "Domain": "1.0.0",
-          "EntityFramework": "6.1.3"
-        }
-      },
       "Domain/1.0.0": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1"
@@ -6283,10 +6259,6 @@
     "DataAccess/1.0.0": {
       "type": "project",
       "path": "../../wrap/DataAccess/project.json"
-    },
-    "DataAccess1/1.0.0": {
-      "type": "project",
-      "path": "../../wrap/DataAccess1/project.json"
     },
     "Domain/1.0.0": {
       "type": "project",
@@ -8585,8 +8557,7 @@
       "Microsoft.VisualStudio.Web.BrowserLink.Loader >= 14.0.0-rc1-final"
     ],
     "DNX,Version=v4.5.1": [
-      "DataAccess >= 1.0.0-*",
-      "DataAccess1 >= 1.0.0-*"
+      "DataAccess >= 1.0.0-*"
     ]
   }
 }

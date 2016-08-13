@@ -5,7 +5,7 @@ namespace Domain.Entities
 {
     public class City
     {
-        public String CityId { get; set; }
+        public Guid CityId { get; set; }
         public String CityName { get; set; }
     }
 }

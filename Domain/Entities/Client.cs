@@ -4,7 +4,7 @@ namespace Domain.Entities
 {
     public class Client
     {
-        public String ClientId { get; set; }
+        public Guid ClientId { get; set; }
         public String Name { get; set; }
         public String Phone { get; set; }
         public char? Gender { get; set; }

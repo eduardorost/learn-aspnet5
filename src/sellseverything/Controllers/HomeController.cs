@@ -11,10 +11,6 @@ namespace sellseverything.Controllers
     {
         public IActionResult Index()
         {
-            DataContext db = new DataContext();
-
-            var cursos = db.Users.ToList();
-
             return View();
         }
     }

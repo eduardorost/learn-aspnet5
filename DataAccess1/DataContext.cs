@@ -6,7 +6,7 @@ namespace DataAccess
 {
     public class DataContext : DbContext
     {
-        public DataContext() : base("DataContext")
+        public DataContext() : base("Initial Catalog=Database;Data Source=.;Integrated Security=True;")
         {
             Configuration.LazyLoadingEnabled = false;
             Configuration.ProxyCreationEnabled = false;
