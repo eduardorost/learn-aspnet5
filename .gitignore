@@ -1,3 +1,10 @@
 .vs/
 src/sellseverything/wwwroot/lib
 src/sellseverything/node_modules
+DataAccess1/bin/
+DataAccess1/obj/
+Domain/bin/
+Domain/obj/
+artifacts/
+packages/
+wrap/
