@@ -2,9 +2,15 @@
     'use strict';
     angular.module('sellseverything').controller('customersController', CustomersController);
 
-    function CustomersController($scope, $filter, NgTableParams, customersDataservice, usersDataservice, classificationsDataservice, citiesDataservice) {
+    function CustomersController($scope, $filter, NgTableParams, authFactory, customersDataservice, usersDataservice, classificationsDataservice, citiesDataservice) {
 
         var self = this;
+
+        $scope.userLogged = authFactory.getUserLogged();
+
+        $scope.filter = {
+            UserLoggedId: $scope.userLogged.UserId
+        }
 
         $scope.genders = ['F', 'M'];
         $scope.updateRegions = function (cityId) {
@@ -19,7 +25,9 @@
         };
 
         $scope.clear = function () {
-            $scope.filter = {};
+            $scope.filter = {
+                UserLoggedId: $scope.userLogged.UserId
+            };
         };
 
         $scope.search = function () {
@@ -44,7 +52,7 @@
             $scope.cities = response.data;
         });
 
-        customersDataservice.getAllCustomers().then(function (response) {
+        customersDataservice.filterCustomers($scope.filter).then(function (response) {
             $scope.tableParams = new NgTableParams({}, { dataset: response.data });
         });
     }

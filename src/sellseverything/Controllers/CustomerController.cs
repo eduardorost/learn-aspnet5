@@ -9,6 +9,7 @@ using sellseverything.ViewModels;
 using Newtonsoft.Json;
 using System.Data.Entity.Core.Objects;
 using System.Data.Entity;
+using Domain.Entities;
 
 namespace sellseverything.Controllers
 {
@@ -24,6 +25,11 @@ namespace sellseverything.Controllers
         [Route("api/customers")]
         public JsonResult GetCustomers(FilterCustomersViewModel filter)
         {
+            var userLoggedGuid = Guid.Parse(filter.UserLoggedId);
+            var user = dataContext.Users.FirstOrDefault(u => u.UserId == userLoggedGuid);
+            if (!user.Email.Contains("admin"))
+                filter.UserId = user.UserId;
+
             var beginDate = !filter.LastPurchase.HasValue ? DateTime.MinValue : filter.LastPurchase.Value;
             var endDate = !filter.Until.HasValue ? DateTime.MaxValue : filter.Until.Value;
 

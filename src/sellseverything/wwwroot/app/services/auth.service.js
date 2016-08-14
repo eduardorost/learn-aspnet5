@@ -6,7 +6,7 @@
 
         var auth = {
             authenticate: authenticate,
-            //authenticateWithExistingToken: authenticateWithExistingToken,
+            getUserLogged: getUserLogged,
             logout: logout,
             initialize: initialize,
             enter: enter
@@ -17,22 +17,19 @@
         function authenticate(credentials, callback) {
             authDataservice.loginUser(credentials)
         		.then(function (user) {
-        		    $window.localStorage.loggedUser = user;
-
-        		    if (user)
+        		    if (user) {
         		        $location.path(auth.homePath);
+        		        $window.localStorage.loggedUser = JSON.stringify(user);
+        		        callback(true);
+        		    }
+                    
+        		    callback(false);
         		});
         }
 
-        //function authenticateWithExistingToken(callback) {
-        //	authDataservice.isTokenValid()
-        //		.then(function (isTokenValid) {
-        //			if (isTokenValid)
-        //				auth.authenticated = true;
-
-        //			$location.path(auth.path.startsWith(auth.loginPath) ? auth.homePath : auth.path);
-        //		});
-        //}
+        function getUserLogged() {
+            return JSON.parse($window.localStorage.loggedUser);
+        }
 
         function logout() {
             delete $window.localStorage.loggedUser;
@@ -60,17 +57,6 @@
                 if (!$window.localStorage.loggedUser)
                     $location.path(auth.loginPath);
             }
-            //else {
-            //    auth.authenticated = false;
-            //}
         }
-
-        //function checkAuthReturn(hasToken, callback) {
-        //	if (hasToken)
-        //		auth.authenticated = true;
-
-        //	$location.path(auth.path.startsWith(auth.loginPath) ? auth.homePath : auth.path);
-        //	callback && callback(auth.authenticated);
-        //}
     }
 })();

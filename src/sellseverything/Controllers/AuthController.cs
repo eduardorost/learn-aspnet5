@@ -41,7 +41,12 @@ namespace sellseverything.Controllers
             if (user.Password != strBuilder.ToString())
                 return Json(null);
 
-            return Json(user);
+            return Json(new {
+                UserId = user.UserId,
+                Name = user.Name,
+                Email = user.Email,
+                isAdm = user.Email.Contains("admin")
+            });
         }
     }
 }

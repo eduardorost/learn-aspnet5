@@ -8,6 +8,7 @@ namespace sellseverything.ViewModels
 {
     public class FilterCustomersViewModel
     {
+        public String UserLoggedId { get; set; }
         public String Name { get; set; }
         public String Gender { get; set; }
         public DateTime? LastPurchase { get; set; }

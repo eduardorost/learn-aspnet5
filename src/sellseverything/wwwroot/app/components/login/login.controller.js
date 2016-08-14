@@ -7,9 +7,12 @@
         var self = this;
 
         $scope.login = login;
+        $scope.success = true;
 
         function login() {
-            authFactory.authenticate($scope.user);
+            authFactory.authenticate($scope.user, function (success) {
+                $scope.success = success;
+            });
         }
     }
 })();

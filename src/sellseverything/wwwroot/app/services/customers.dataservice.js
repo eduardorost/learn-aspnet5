@@ -4,15 +4,10 @@
 
     function CustomersDataservice($http) {
         var customersDataservice = {
-            getAllCustomers: getAllCustomers,
             filterCustomers: filterCustomers
         };
 
         return customersDataservice;
-
-        function getAllCustomers() {
-            return $http.get('/api/customers');
-        }
 
         function filterCustomers(filter) {
             var parameters = Object.keys(filter).map(function (key) {

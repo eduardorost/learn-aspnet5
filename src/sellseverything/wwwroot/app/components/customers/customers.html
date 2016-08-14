@@ -9,7 +9,7 @@
                 <md-input-container class="md-block" flex-gt-xs>
                     <label>Gender</label>
                     <md-select ng-model="filter.Gender">
-                        <md-option value="" selected>
+                        <md-option value="">
                             Select
                         </md-option>
                         <md-option ng-repeat="gender in genders" value="{{gender}}">
@@ -22,7 +22,7 @@
                 <md-input-container class="md-block" flex-gt-sm>
                     <label>City</label>
                     <md-select ng-change="updateRegions(filter.CityId)" ng-model="filter.CityId">
-                        <md-option value="" selected>
+                        <md-option value="">
                             Select
                         </md-option>
                         <md-option ng-repeat="city in cities" value="{{city.CityId}}">
@@ -33,7 +33,7 @@
                 <md-input-container class="md-block" flex-gt-sm>
                     <label>Region</label>
                     <md-select ng-model="filter.RegionId">
-                        <md-option value="" selected>
+                        <md-option value="">
                             Select
                         </md-option>
                         <md-option ng-repeat="region in regions" value="{{region.RegionId}}">
@@ -56,7 +56,7 @@
                 <md-input-container class="md-block" flex-gt-sm>
                     <label>Classification</label>
                     <md-select ng-model="filter.ClassificationId">
-                        <md-option value="" selected>
+                        <md-option value="">
                             Select
                         </md-option>
                         <md-option ng-repeat="classification in classifications" value="{{classification.ClassificationId}}">
@@ -64,10 +64,10 @@
                         </md-option>
                     </md-select>
                 </md-input-container>
-                <md-input-container class="md-block" flex-gt-sm>
+                <md-input-container class="md-block" flex-gt-sm ng-if="userLogged.isAdm">
                     <label>Sender</label>
                     <md-select ng-model="filter.UserId">
-                        <md-option value="" selected>
+                        <md-option value="">
                             Select
                         </md-option>
                         <md-option ng-repeat="user in users" value="{{user.UserId}}">
@@ -77,8 +77,8 @@
                 </md-input-container>
             </div>
 
-            <input type="submit" value="Search" />
-            <button ng-click="clear()">Clear</button>
+            <md-button type="submit" class="md-raised md-primary">Search</md-button>
+            <md-button class="md-raised" ng-click="clear()">Clear</md-button>
         </form>
     </div>
 </md-content>
@@ -109,8 +109,8 @@
                 <td title="'Last Purchase'" sortable="'LastPurchase'">
                     {{customer.LastPurchase | date:'dd/MM/yyyy'}}
                 </td>
-                <!--<td title="'Seller'" filter="{ Phone: 'number'}" sortable="'Phone'">
-                    {{customer.Phone}}
+                <!--<td title="'Seller'" sortable="'Seller'" ng-if="userLogged.isAdm">
+                    {{customer.Seller}}
                 </td>-->
             </tr>
         </table>
