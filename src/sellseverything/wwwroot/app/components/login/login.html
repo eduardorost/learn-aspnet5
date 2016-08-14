@@ -1,20 +1,22 @@
-﻿<md-content layout-padding>
-    <div>
-        <h1 ng-show="!success">“The e-mail and/or password entered is invalid. Please try again.</h1>
-        <form name="userForm" ng-submit="login()">
-            <div layout-gt-xs="row">
-                <md-input-container class="md-block" flex-gt-xs>
-                    <label>Email</label>
-                    <input type="text" ng-model="user.email" required>
-                </md-input-container>
-            </div>
-            <div layout-gt-sm="row">
-                <md-input-container class="md-block" flex-gt-sm>
-                    <label>Password</label>
-                    <input type="password" ng-model="user.password" required>
-                </md-input-container>
-            </div>
+﻿<md-content layout-padding">
+    <form name="userForm" ng-submit="login()">
+        <div layout="row" layout-align="center">
+            <md-input-container class="md-block" flex="30">
+                <label>Email</label>
+                <input type="text" ng-model="user.email" required>
+            </md-input-container>
+        </div>
+        <div layout="row" layout-align="center">
+            <md-input-container class="md-block" flex="30">
+                <label>Password</label>
+                <input type="password" ng-model="user.password" required>
+            </md-input-container>
+        </div>
+        <div class="validation-messages" ng-show="!success">
+            The e-mail and/or password entered is invalid. Please try again.
+        </div>
+        <div layout="row" layout-align="center">
             <md-button type="submit" ng-disabled="userForm.$invalid" class="md-raised md-primary">Login</md-button>
-        </form>
-    </div>
+        </div>
+    </form>
 </md-content>
