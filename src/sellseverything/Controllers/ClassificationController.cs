@@ -7,19 +7,19 @@ using DataAccess;
 
 namespace sellseverything.Controllers
 {
-    public class CustomerController : Controller
+    public class ClassificationController : Controller
     {
         private DataContext dataContext;
 
-        public CustomerController()
+        public ClassificationController()
         {
             dataContext = new DataContext();
         }
 
-        [Route("api/customers")]
-        public JsonResult GetCustomers()
+        [Route("api/classifications")]
+        public JsonResult GetClassifications()
         {
-            return Json(dataContext.Clients.Include("Classification").Include("Region.City").ToList());
+            return Json(dataContext.Classifications.ToList());
         }
     }
 }

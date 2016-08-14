@@ -12,6 +12,10 @@ namespace DataAccess.Map
             HasKey(x => x.CityId);
 
             Property(c => c.CityName).IsRequired().HasMaxLength(200);
+
+            HasMany(x => x.Regions)
+                .WithOptional()
+                .HasForeignKey(x => x.CityId);
         }
     }
 }

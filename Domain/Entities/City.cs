@@ -7,5 +7,6 @@ namespace Domain.Entities
     {
         public Guid CityId { get; set; }
         public String CityName { get; set; }
+        public virtual ICollection<Region> Regions { get; set; }
     }
 }

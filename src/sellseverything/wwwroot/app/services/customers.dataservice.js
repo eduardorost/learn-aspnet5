@@ -11,9 +11,6 @@
 
         function getAllCustomers() {
             return $http.get('/api/customers');
-                //.then(function (response) {
-                //    return response.data;
-                //});
         }
     }
 })();
