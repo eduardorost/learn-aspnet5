@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Security.Claims;
+﻿using System.Collections.Generic;
 using Microsoft.AspNet.Authorization;
-using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Mvc;
-using Microsoft.Extensions.Logging;
-using sellseverything.Models;
 using sellseverything.Services;
 
 namespace sellseverything.Controllers
@@ -15,14 +8,10 @@ namespace sellseverything.Controllers
     [Authorize]
     public class CustomerController : Controller
     {
-        private readonly UserManager<ApplicationUser> _userManager;
-        private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly ICustomerService _customerService;
-        private readonly ILogger _logger;
 
-        public CustomerController(UserManager<ApplicationUser> userManager, ICustomerService customerService)
+        public CustomerController(ICustomerService customerService)
         {
-            _userManager = userManager;
             _customerService = customerService;
         }
 
@@ -35,14 +24,5 @@ namespace sellseverything.Controllers
 
             return Json(customers);
         }
-
-        #region Helpers
-
-        private async Task<ApplicationUser> GetCurrentUserAsync()
-        {
-            return await _userManager.FindByIdAsync(HttpContext.User.GetUserId());
-        }
-
-        #endregion
     }
 }

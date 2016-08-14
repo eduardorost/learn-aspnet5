@@ -9,7 +9,6 @@ using System.Text;
 
 namespace sellseverything.Controllers
 {
-    [Authorize]
     public class AuthController : Controller
     {
         private DataContext dataContext;
@@ -21,7 +20,6 @@ namespace sellseverything.Controllers
 
         [Route("api/auth")]
         [HttpPost]
-        [AllowAnonymous]
         public JsonResult Login([FromBody] AuthViewModel authViewModel)
         {
             User user = dataContext.Users.FirstOrDefault(u => u.Email == authViewModel.Email);
