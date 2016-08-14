@@ -1,0 +1,84 @@
+﻿<md-content layout-padding>
+    <form name="searchForm" ng-submit="search()">
+        <div layout="row" layout-align="center">
+            <md-input-container class="md-block" flex="40">
+                <label>Name</label>
+                <input type="text" ng-model="filter.Name">
+            </md-input-container>
+            <md-input-container class="md-block" flex="10">
+                <label>Gender</label>
+                <md-select ng-model="filter.Gender">
+                    <md-option value="">
+                        Select
+                    </md-option>
+                    <md-option ng-repeat="gender in genders" value="{{gender}}">
+                        {{gender}}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+            <div style="padding-top: 15px;">
+                <md-datepicker md-open-on-focus name="lastPurchase" ng-model="filter.LastPurchaseField" md-placeholder="Last Purhase"></md-datepicker>
+                <div class="validation-messages" ng-messages="searchForm.lastPurchase.$error">
+                    <div ng-message="valid">The entered value is not a date!</div>
+                </div>
+            </div>
+            <div style="padding-top: 15px;">
+                <md-datepicker name="until" ng-model="filter.UntilField" md-placeholder="Until" md-open-on-focus></md-datepicker>
+                <div class="validation-messages" ng-messages="searchForm.until.$error">
+                    <div ng-message="valid">The entered value is not a date!</div>
+                </div>
+            </div>
+        </div>
+        <div layout="row" layout-align="center">
+            <md-input-container class="md-block" flex="20">
+                <label>City</label>
+                <md-select ng-change="updateRegions(filter.CityId)" ng-model="filter.CityId">
+                    <md-option value="">
+                        Select
+                    </md-option>
+                    <md-option ng-repeat="city in cities" value="{{city.CityId}}">
+                        {{city.CityName}}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+            <md-input-container class="md-block" flex="20">
+                <label>Region</label>
+                <md-select ng-model="filter.RegionId">
+                    <md-option value="">
+                        Select
+                    </md-option>
+                    <md-option ng-repeat="region in regions" value="{{region.RegionId}}">
+                        {{region.RegionName}}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+            <md-input-container class="md-block" flex="20">
+                <label>Classification</label>
+                <md-select ng-model="filter.ClassificationId">
+                    <md-option value="">
+                        Select
+                    </md-option>
+                    <md-option ng-repeat="classification in classifications" value="{{classification.ClassificationId}}">
+                        {{classification.ClassificationName}}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+            <md-input-container class="md-block" flex="20" ng-if="userLogged.isAdm">
+                <label>Sender</label>
+                <md-select ng-model="filter.UserId">
+                    <md-option value="">
+                        Select
+                    </md-option>
+                    <md-option ng-repeat="user in users" value="{{user.UserId}}">
+                        {{user.Name}}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+        </div>
+
+        <div layout="row" layout-align="center">
+            <md-button type="submit" ng-disabled="searchForm.$invalid" class="md-raised md-primary">Search</md-button>
+            <md-button class="md-raised" ng-click="clear()">Clear</md-button>
+        </div>
+    </form>
+</md-content>

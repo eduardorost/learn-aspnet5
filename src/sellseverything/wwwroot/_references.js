@@ -12,6 +12,7 @@
 /// <reference path="app/services/customers.dataservice.js" />
 /// <reference path="app/services/users.dataservice.js" />
 /// <reference path="app/shared/customers/list.customers.directive.js" />
+/// <reference path="app/shared/customers/search.customers.directive.js" />
 /// <reference path="lib/angular/angular.js" />
 /// <reference path="lib/angular-animate/angular-animate.js" />
 /// <reference path="lib/angular-aria/angular-aria.js" />

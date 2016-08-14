@@ -23,8 +23,6 @@
             self.dtOptions = DTOptionsBuilder.newOptions()
                             .withPaginationType('full_numbers')
                             .withDisplayLength(10);
-
         }
-
     }
 })();
