@@ -1,0 +1,19 @@
+﻿<md-content layout-padding>
+    <div>
+        <form name="userForm" ng-submit="login()">
+            <div layout-gt-xs="row">
+                <md-input-container class="md-block" flex-gt-xs>
+                    <label>Usuário</label>
+                    <input type="email" ng-model="user.email">
+                </md-input-container>
+            </div>
+            <div layout-gt-sm="row">
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Password</label>
+                    <input type="password" ng-model="user.password">
+                </md-input-container>
+            </div>
+            <input type="submit" value="Login" />
+        </form>
+    </div>
+</md-content>

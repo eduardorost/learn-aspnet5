@@ -6,20 +6,20 @@
 
         $locationProvider.html5Mode(true);
 
-        var customer = {
+        var customers = {
             templateUrl: '/app/components/customers/customers.html',
-            controller: 'CustomersController as customers'
+            controller: 'CustomersController as customersController'
         }
 
-        //var login = {
-        //    templateUrl: '/app/components/login/login.html',
-        //    controller: 'loginController',
-        //    controllerAs: 'login'
-        //}
+        var login = {
+            templateUrl: '/app/components/login/login.html',
+            controller: 'LoginController as loginController'
+        }
 
         $routeProvider
-            .when('/', customer)
-            //.when('/login', login)
+            .when('/', customers)
+            .when('/customers', customers)
+            .when('/login', login)
             .otherwise('/');
     }
 })();
