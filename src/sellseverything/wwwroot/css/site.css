@@ -1,1 +1,72 @@
-﻿
+﻿ .validation-messages {
+    font-size: 12px;
+    color: #dd2c00;
+    margin: 10px 0 0 25px; 
+ }
+
+.box-table {
+    position: relative;
+    display: block;
+}
+
+.dataTables_wrapper .dataTables_paginate {
+    width: 95%;
+    display: block;
+    margin: 0 auto;
+}
+
+.paginate_button.previous,
+.paginate_button.next,
+.paginate_button.last,
+.paginate_button.first {
+    display: none;
+}
+
+
+table.dataTable, table.dataTable.no-footer {
+    width: 95% !important;
+    margin: 0 auto;
+    margin-top: 32px;
+    margin-bottom: 20px;
+    text-align: left;
+    font-family: 'Museo';
+    font-size: 12px;
+}
+
+.dataTables_wrapper {
+    margin-bottom: -10px;
+    padding-bottom: 0;
+    padding-top: 2em;
+}
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button {
+        font-weight: bolder;
+        border-radius: 3px;
+        margin-left: 5px;
+    }
+
+.dataTables_info {
+    position: absolute;
+    top: 21px;
+    left: 2%;
+    color: #858585;
+    font-size: 13px;
+    font-family: 'Museo';
+}
+
+.dataTables_filter {
+    position: absolute;
+    top: 14px;
+    right: 2%;
+    color: #858585 !important;
+    font-size: 13px;
+    font-family: 'Museo';
+}
+
+.dataTables_length {
+    display: none;
+}
+
+.table > thead:first-child > tr:first-child > th {
+    width: 20px !important;
+}

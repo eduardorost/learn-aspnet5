@@ -1,4 +1,4 @@
 (function () {
     'use strict';
-    angular.module('sellseverything', ['ngRoute', 'ngMessages', 'ngMaterial', 'ngTable']);
+    angular.module('sellseverything', ['ngRoute', 'ngMessages', 'ngMaterial', 'datatables']);
 })();

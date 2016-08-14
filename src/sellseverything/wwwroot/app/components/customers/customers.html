@@ -1,118 +1,145 @@
-﻿<md-content layout-padding>
-    <div>
-        <form name="searchForm" ng-submit="search()">
-            <div layout-gt-xs="row">
-                <md-input-container class="md-block" flex-gt-xs>
-                    <label>Name</label>
-                    <input type="text" ng-model="filter.Name">
-                </md-input-container>
-                <md-input-container class="md-block" flex-gt-xs>
-                    <label>Gender</label>
-                    <md-select ng-model="filter.Gender">
-                        <md-option value="">
-                            Select
-                        </md-option>
-                        <md-option ng-repeat="gender in genders" value="{{gender}}">
-                            {{gender}}
-                        </md-option>
-                    </md-select>
-                </md-input-container>
-            </div>
-            <div layout-gt-sm="row">
-                <md-input-container class="md-block" flex-gt-sm>
-                    <label>City</label>
-                    <md-select ng-change="updateRegions(filter.CityId)" ng-model="filter.CityId">
-                        <md-option value="">
-                            Select
-                        </md-option>
-                        <md-option ng-repeat="city in cities" value="{{city.CityId}}">
-                            {{city.CityName}}
-                        </md-option>
-                    </md-select>
-                </md-input-container>
-                <md-input-container class="md-block" flex-gt-sm>
-                    <label>Region</label>
-                    <md-select ng-model="filter.RegionId">
-                        <md-option value="">
-                            Select
-                        </md-option>
-                        <md-option ng-repeat="region in regions" value="{{region.RegionId}}">
-                            {{region.RegionName}}
-                        </md-option>
-                    </md-select>
-                </md-input-container>
-            </div>
-            <div layout-gt-sm="row">
-                <md-datepicker name="lastPurchase" ng-model="filter.LastPurchaseField" md-placeholder="Last Purhase"></md-datepicker>
+﻿<md-toolbar>
+    <div class="md-toolbar-tools">
+        <h2>
+            <span>SellsEverything</span>
+        </h2>
+        <span flex></span>
+        <md-button aria-label="Logout" ng-click="logout()">
+            Logout
+        </md-button>
+    </div>
+</md-toolbar>
+
+<!--Filter-->
+<md-content layout-padding>
+    <form name="searchForm" ng-submit="search()">
+        <div layout="row" layout-align="center">
+            <md-input-container class="md-block" flex="40">
+                <label>Name</label>
+                <input type="text" ng-model="filter.Name">
+            </md-input-container>
+            <md-input-container class="md-block" flex="10">
+                <label>Gender</label>
+                <md-select ng-model="filter.Gender">
+                    <md-option value="">
+                        Select
+                    </md-option>
+                    <md-option ng-repeat="gender in genders" value="{{gender}}">
+                        {{gender}}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+            <div style="padding-top: 15px;">
+                <md-datepicker md-open-on-focus name="lastPurchase" ng-model="filter.LastPurchaseField" md-placeholder="Last Purhase"></md-datepicker>
                 <div class="validation-messages" ng-messages="searchForm.lastPurchase.$error">
                     <div ng-message="valid">The entered value is not a date!</div>
                 </div>
-                <md-datepicker name="until" ng-model="filter.UntilField" md-placeholder="Until"></md-datepicker>
+            </div>
+            <div style="padding-top: 15px;">
+                <md-datepicker name="until" ng-model="filter.UntilField" md-placeholder="Until" md-open-on-focus></md-datepicker>
                 <div class="validation-messages" ng-messages="searchForm.until.$error">
                     <div ng-message="valid">The entered value is not a date!</div>
                 </div>
             </div>
-            <div layout-gt-sm="row">
-                <md-input-container class="md-block" flex-gt-sm>
-                    <label>Classification</label>
-                    <md-select ng-model="filter.ClassificationId">
-                        <md-option value="">
-                            Select
-                        </md-option>
-                        <md-option ng-repeat="classification in classifications" value="{{classification.ClassificationId}}">
-                            {{classification.ClassificationName}}
-                        </md-option>
-                    </md-select>
-                </md-input-container>
-                <md-input-container class="md-block" flex-gt-sm ng-if="userLogged.isAdm">
-                    <label>Sender</label>
-                    <md-select ng-model="filter.UserId">
-                        <md-option value="">
-                            Select
-                        </md-option>
-                        <md-option ng-repeat="user in users" value="{{user.UserId}}">
-                            {{user.Name}}
-                        </md-option>
-                    </md-select>
-                </md-input-container>
-            </div>
+        </div>
+        <div layout="row" layout-align="center">
+            <md-input-container class="md-block" flex="20">
+                <label>City</label>
+                <md-select ng-change="updateRegions(filter.CityId)" ng-model="filter.CityId">
+                    <md-option value="">
+                        Select
+                    </md-option>
+                    <md-option ng-repeat="city in cities" value="{{city.CityId}}">
+                        {{city.CityName}}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+            <md-input-container class="md-block" flex="20">
+                <label>Region</label>
+                <md-select ng-model="filter.RegionId">
+                    <md-option value="">
+                        Select
+                    </md-option>
+                    <md-option ng-repeat="region in regions" value="{{region.RegionId}}">
+                        {{region.RegionName}}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+            <md-input-container class="md-block" flex="20">
+                <label>Classification</label>
+                <md-select ng-model="filter.ClassificationId">
+                    <md-option value="">
+                        Select
+                    </md-option>
+                    <md-option ng-repeat="classification in classifications" value="{{classification.ClassificationId}}">
+                        {{classification.ClassificationName}}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+            <md-input-container class="md-block" flex="20" ng-if="userLogged.isAdm">
+                <label>Sender</label>
+                <md-select ng-model="filter.UserId">
+                    <md-option value="">
+                        Select
+                    </md-option>
+                    <md-option ng-repeat="user in users" value="{{user.UserId}}">
+                        {{user.Name}}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+        </div>
 
-            <md-button type="submit" class="md-raised md-primary">Search</md-button>
+        <div layout="row" layout-align="center">
+            <md-button type="submit" ng-disabled="searchForm.$invalid" class="md-raised md-primary">Search</md-button>
             <md-button class="md-raised" ng-click="clear()">Clear</md-button>
-        </form>
-    </div>
+        </div>
+    </form>
 </md-content>
 
 <!--result-->
 <md-content layout-padding>
-    <div>
-        <table ng-table="tableParams" class="table" show-filter="true">
-            <tr ng-repeat="customer in $data">
-                <td title="'Classification'" sortable="'Classification.ClassificationName'">
-                    {{customer.Classification.ClassificationName}}
-                </td>
-                <td title="'Name'" sortable="'Name'">
-                    {{customer.Name}}
-                </td>
-                <td title="'Phone'" sortable="'Phone'">
-                    {{customer.Phone}}
-                </td>
-                <td title="'Gender'" sortable="'Gender'">
-                    {{customer.Gender}}
-                </td>
-                <td title="'City'" sortable="'Region.City.CityName'">
-                    {{customer.Region.City.CityName}}
-                </td>
-                <td title="'Region'" sortable="'Region.RegionName'">
-                    {{customer.Region.RegionName}}
-                </td>
-                <td title="'Last Purchase'" sortable="'LastPurchase'">
-                    {{customer.LastPurchase | date:'dd/MM/yyyy'}}
-                </td>
-                <!--<td title="'Seller'" sortable="'Seller'" ng-if="userLogged.isAdm">
-                    {{customer.Seller}}
-                </td>-->
-            </tr>
+    <div class="box-table">
+        <table class="table" datatable="ng" dt-options="dtOptions">
+            <thead>
+                <tr>
+                    <th>Classification</th>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Gender</th>
+                    <th>City</th>
+                    <th>Region</th>
+                    <th>Last Purchase</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="customer in customers">
+                    <td>
+                        {{customer.Classification.ClassificationName}}
+                    </td>
+                    <td>
+                        {{customer.Name}}
+                    </td>
+                    <td>
+                        {{customer.Phone}}
+                    </td>
+                    <td>
+                        {{customer.Gender}}
+                    </td>
+                    <td>
+                        {{customer.Region.City.CityName}}
+                    </td>
+                    <td>
+                        {{customer.Region.RegionName}}
+                    </td>
+                    <td>
+                        {{customer.LastPurchase | date:'dd/MM/yyyy'}}
+                    </td>
+
+                    <!--<td ng-if="userLogged.isAdm">
+                        {{customer.Seller}}
+                    </td>-->
+                </tr>
+            </tbody>
         </table>
     </div>
 </md-content>

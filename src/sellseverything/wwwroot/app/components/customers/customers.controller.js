@@ -2,14 +2,20 @@
     'use strict';
     angular.module('sellseverything').controller('customersController', CustomersController);
 
-    function CustomersController($scope, $filter, NgTableParams, authFactory, customersDataservice, usersDataservice, classificationsDataservice, citiesDataservice) {
+    function CustomersController($scope, $filter, DTOptionsBuilder, authFactory, customersDataservice, usersDataservice, classificationsDataservice, citiesDataservice) {
 
         var self = this;
 
         $scope.userLogged = authFactory.getUserLogged();
-
         $scope.filter = {
             UserLoggedId: $scope.userLogged.UserId
+        }
+        $scope.dtOptions = DTOptionsBuilder.newOptions()
+                            .withPaginationType('full_numbers')
+                            .withDisplayLength(10);
+
+        $scope.logout = function () {
+            authFactory.logout();
         }
 
         $scope.genders = ['F', 'M'];
@@ -34,7 +40,7 @@
             $scope.filter.LastPurchase = $filter('date')($scope.filter.LastPurchaseField, 'yyyy-MM-dd');
             $scope.filter.Until = $filter('date')($scope.filter.UntilField, 'yyyy-MM-dd');
             customersDataservice.filterCustomers($scope.filter).then(function (response) {
-                $scope.tableParams = new NgTableParams({}, { dataset: response.data });
+                $scope.customers = response.data;
                 $scope.filter.LastPurchase = null;
                 $scope.filter.Until = null;
             });
@@ -53,7 +59,7 @@
         });
 
         customersDataservice.filterCustomers($scope.filter).then(function (response) {
-            $scope.tableParams = new NgTableParams({}, { dataset: response.data });
+            $scope.customers = response.data;
         });
     }
 
