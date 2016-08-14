@@ -13,7 +13,7 @@ namespace DataAccess.Map
             HasKey(x => x.RegionId);
 
             Property(c => c.RegionName).IsRequired().HasMaxLength(200);
-            
+
             HasRequired(x => x.City)
               .WithRequiredPrincipal();
         }

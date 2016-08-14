@@ -1,1 +1,28 @@
-﻿<h1>{{customers.message}}</h1>
+﻿<table ng-table="tableParams" class="table" show-filter="true">
+    <tr ng-repeat="customer in $data">
+        <td title="'Classification'" filter="{ 'Classification.ClassificationName': 'text'}" sortable="'Classification.ClassificationName'">
+            {{customer.Classification.ClassificationName}}
+        </td>
+        <td title="'Name'" filter="{ Name: 'text'}" sortable="'Name'">
+            {{customer.Name}}
+        </td>
+        <td title="'Phone'" filter="{ Phone: 'text'}" sortable="'Phone'">
+            {{customer.Phone}}
+        </td>
+        <td title="'Gender'" filter="{ Gender: 'text'}" sortable="'Gender'">
+            {{customer.Gender}}
+        </td>
+        <td title="'City'" filter="{ 'Region.City.CityName': 'text'}" sortable="'Region.City.CityName'">
+            {{customer.Region.City.CityName}}
+        </td>
+        <td title="'Region'" filter="{ 'Region.RegionName': 'text'}" sortable="'Region.RegionName'">
+            {{customer.Region.RegionName}}
+        </td>
+        <td title="'Last Purchase'" filter="{ LastPurchase: 'text'}" sortable="'LastPurchase'">
+            {{customer.LastPurchase | date:'dd/MM/yyyy'}}
+        </td>
+        <!--<td title="'Seller'" filter="{ Phone: 'number'}" sortable="'Phone'">
+            {{customer.Phone}}
+        </td>-->
+    </tr>
+</table>

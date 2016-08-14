@@ -17,9 +17,10 @@ namespace DataAccess.Map
             Property(c => c.LastPurchase).IsOptional();
             Property(c => c.Address).IsOptional();
             Property(c => c.Occupation).IsOptional();
+            Property(c => c.SellerId);
 
-            HasRequired(x => x.Seller)
-              .WithRequiredPrincipal();
+            //HasRequired(x => x.Seller)
+            //.WithRequiredPrincipal();
             HasRequired(x => x.Region)
               .WithOptional();
             HasRequired(x => x.Classification)

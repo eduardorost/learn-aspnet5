@@ -1,6 +1,6 @@
 ﻿(function () {
     'use strict';
-    angular.module('sellseverything').controller('LoginController', LoginController);
+    angular.module('sellseverything').controller('loginController', LoginController);
 
     function LoginController($scope, authFactory) {
 

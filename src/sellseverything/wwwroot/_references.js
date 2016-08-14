@@ -4,6 +4,7 @@
 /// <reference path="app/app.route.js" />
 /// <reference path="app/app.run.js" />
 /// <reference path="app/components/customers/customers.controller.js" />
+/// <reference path="app/components/customers/customers.dataservice.js" />
 /// <reference path="app/components/login/login.controller.js" />
 /// <reference path="app/services/auth - copy.service.js" />
 /// <reference path="app/services/auth.service.js" />
@@ -13,3 +14,4 @@
 /// <reference path="lib/angular-material/angular-material.js" />
 /// <reference path="lib/angular-messages/angular-messages.js" />
 /// <reference path="lib/angular-route/angular-route.js" />
+/// <reference path="lib/ng-table/dist/ng-table.js" />

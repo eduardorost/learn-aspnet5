@@ -1,28 +1,28 @@
-﻿using System.Collections.Generic;
+﻿using System.Linq;
+using System.Collections.Generic;
 using Microsoft.AspNet.Authorization;
 using Microsoft.AspNet.Mvc;
 using sellseverything.Services;
+using DataAccess;
 
 namespace sellseverything.Controllers
 {
-    [Authorize]
     public class CustomerController : Controller
     {
-        private readonly ICustomerService _customerService;
+        private DataContext dataContext;
 
-        public CustomerController(ICustomerService customerService)
+        public CustomerController()
         {
-            _customerService = customerService;
+            dataContext = new DataContext();
         }
 
-        //
-        // GET: /Customers
+        [Route("api/customers")]
         public JsonResult GetCustomers()
         {
-            var customers = new List<object>();
-            customers.Add(new { name = "teste" });
-
-            return Json(customers);
+            //Invalid column name 'Classification_ClassificationId'.
+            //Invalid column name 'Region_RegionId'.
+            //Invalid column name 'Seller_UserId'."}
+            return Json(dataContext.Clients.Include("Classification").Include("Region.City").ToList());
         }
     }
 }

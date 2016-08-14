@@ -8,12 +8,12 @@
 
         var customers = {
             templateUrl: '/app/components/customers/customers.html',
-            controller: 'CustomersController as customersController'
+            controller: 'customersController as customersCtr'
         }
 
         var login = {
             templateUrl: '/app/components/login/login.html',
-            controller: 'LoginController as loginController'
+            controller: 'loginController as loginCtr'
         }
 
         $routeProvider
