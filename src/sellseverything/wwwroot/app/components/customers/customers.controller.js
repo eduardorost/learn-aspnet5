@@ -2,7 +2,7 @@
     'use strict';
     angular.module('sellseverything').controller('customersController', CustomersController);
 
-    function CustomersController($scope, $filter, DTOptionsBuilder, authFactory, customersDataservice, usersDataservice, classificationsDataservice, citiesDataservice) {
+    function CustomersController($scope, $filter, authFactory, customersDataservice, usersDataservice, classificationsDataservice, citiesDataservice) {
 
         var self = this;
 
@@ -10,9 +10,6 @@
         $scope.filter = {
             UserLoggedId: $scope.userLogged.UserId
         }
-        $scope.dtOptions = DTOptionsBuilder.newOptions()
-                            .withPaginationType('full_numbers')
-                            .withDisplayLength(10);
 
         $scope.logout = function () {
             authFactory.logout();

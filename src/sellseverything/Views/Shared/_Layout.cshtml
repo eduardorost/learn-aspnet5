@@ -15,7 +15,8 @@
 
     @RenderBody()
 
-    <environment names="Development">
+    <environment names="Development">        
+        <!-- jQuery Scripts -->
         <script src="~/lib/jquery/dist/jquery.js"></script>
         <script src="~/lib/datatables.net/js/jquery.datatables.js"></script>
 
@@ -46,6 +47,9 @@
         <!-- Aplication Controllers Scripts -->
         <script src="~/app/components/customers/customers.controller.js"></script>
         <script src="~/app/components/login/login.controller.js"></script>
+        
+        <!-- Aplication Directives Scripts -->
+        <script src="~/app/shared/customers/list.customers.directive.js"></script>
 
     </environment>
     <environment names="Staging,Production">

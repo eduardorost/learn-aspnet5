@@ -1,0 +1,46 @@
+﻿<md-content layout-padding>
+    <div class="box-table">
+        <table class="table" datatable="ng" dt-options="dtOptions">
+            <thead>
+                <tr>
+                    <th>Classification</th>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Gender</th>
+                    <th>City</th>
+                    <th>Region</th>
+                    <th>Last Purchase</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="customer in customers">
+                    <td>
+                        {{customer.Classification.ClassificationName}}
+                    </td>
+                    <td>
+                        {{customer.Name}}
+                    </td>
+                    <td>
+                        {{customer.Phone}}
+                    </td>
+                    <td>
+                        {{customer.Gender}}
+                    </td>
+                    <td>
+                        {{customer.Region.City.CityName}}
+                    </td>
+                    <td>
+                        {{customer.Region.RegionName}}
+                    </td>
+                    <td>
+                        {{customer.LastPurchase | date:'dd/MM/yyyy'}}
+                    </td>
+
+                    <!--<td ng-if="userLogged.isAdm">
+                        {{customer.Seller}}
+                    </td>-->
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</md-content>
