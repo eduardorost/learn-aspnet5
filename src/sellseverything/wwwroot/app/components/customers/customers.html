@@ -9,7 +9,7 @@
                 <md-input-container class="md-block" flex-gt-xs>
                     <label>Gender</label>
                     <md-select ng-model="filter.Gender">
-                        <md-option value="0" selected>
+                        <md-option value="" selected>
                             Select
                         </md-option>
                         <md-option ng-repeat="gender in genders" value="{{gender}}">
@@ -22,7 +22,7 @@
                 <md-input-container class="md-block" flex-gt-sm>
                     <label>City</label>
                     <md-select ng-change="updateRegions(filter.CityId)" ng-model="filter.CityId">
-                        <md-option value="0" selected>
+                        <md-option value="" selected>
                             Select
                         </md-option>
                         <md-option ng-repeat="city in cities" value="{{city.CityId}}">
@@ -33,7 +33,7 @@
                 <md-input-container class="md-block" flex-gt-sm>
                     <label>Region</label>
                     <md-select ng-model="filter.RegionId">
-                        <md-option value="0" selected>
+                        <md-option value="" selected>
                             Select
                         </md-option>
                         <md-option ng-repeat="region in regions" value="{{region.RegionId}}">
@@ -43,20 +43,20 @@
                 </md-input-container>
             </div>
             <div layout-gt-sm="row">
-                <md-input-container class="md-block" flex-gt-sm>
-                    <label>Last Purhase</label>
-                    <input type="date" ng-model="user.LastPurchase">
-                </md-input-container>
-                <md-input-container class="md-block" flex-gt-sm>
-                    <label>Until</label>
-                    <input type="date" ng-model="user.Until">
-                </md-input-container>
+                <md-datepicker name="lastPurchase" ng-model="filter.LastPurchaseField" md-placeholder="Last Purhase"></md-datepicker>
+                <div class="validation-messages" ng-messages="searchForm.lastPurchase.$error">
+                    <div ng-message="valid">The entered value is not a date!</div>
+                </div>
+                <md-datepicker name="until" ng-model="filter.UntilField" md-placeholder="Until"></md-datepicker>
+                <div class="validation-messages" ng-messages="searchForm.until.$error">
+                    <div ng-message="valid">The entered value is not a date!</div>
+                </div>
             </div>
             <div layout-gt-sm="row">
                 <md-input-container class="md-block" flex-gt-sm>
                     <label>Classification</label>
                     <md-select ng-model="filter.ClassificationId">
-                        <md-option value="0" selected>
+                        <md-option value="" selected>
                             Select
                         </md-option>
                         <md-option ng-repeat="classification in classifications" value="{{classification.ClassificationId}}">
@@ -67,7 +67,7 @@
                 <md-input-container class="md-block" flex-gt-sm>
                     <label>Sender</label>
                     <md-select ng-model="filter.UserId">
-                        <md-option value="0" selected>
+                        <md-option value="" selected>
                             Select
                         </md-option>
                         <md-option ng-repeat="user in users" value="{{user.UserId}}">
@@ -113,9 +113,6 @@
                     {{customer.Phone}}
                 </td>-->
             </tr>
-            <
-            </tr>
-            <
         </table>
     </div>
 </md-content>

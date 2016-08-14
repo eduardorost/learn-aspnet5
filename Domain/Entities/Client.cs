@@ -8,7 +8,7 @@ namespace Domain.Entities
         public String Name { get; set; }
         public String Phone { get; set; }
         public String Gender { get; set; }
-        public DateTime LastPurchase { get; set; }
+        public DateTime? LastPurchase { get; set; }
         public String Address { get; set; }
         public String Occupation { get; set; }
         
